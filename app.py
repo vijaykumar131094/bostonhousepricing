@@ -1,12 +1,13 @@
 from distutils.log import debug
 import pickle
-from Flask import Flask,request,app,jsonify,url_for,render_template
+from flask import Flask,request,app,jsonify,url_for,render_template
 import numpy as np
 import pandas as pd
+import json
 
-app=flask(__name__)
+app=Flask(__name__)
 ##Load the model
-model=pickle.load(open('regmodel.pkl','rb'))
+regmodel=pickle.load(open('regmodel.pkl','rb'))
 scalar=pickle.load(open('scaling.pkl','rb'))
 
 @app.route('/')
